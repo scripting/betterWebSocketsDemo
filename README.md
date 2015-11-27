@@ -16,6 +16,10 @@ The client opens a socket with the server, and the server posts a message to the
 
 6. Close the browser tab and watch what happens in the server. (It notices the connection has closed and stops sending messages.)
 
+7. Open client.html and note that the server resumes sending messages to the client. 
+
+8. Quit the server by pressing Cmd-C in the terminal window. The client should get a <i>close</i> message. It will try to reconnect with the server once a second. Restart the server (step #3). The messages on both the client and server should resume. 
+
 You can launch multiple copies of client.html, but the server will only talk to one of them at a time. It would be easy to extend it to manage multiple open sockets, but this is just a demo. 
 
 #### Code review please
