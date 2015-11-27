@@ -28,5 +28,5 @@ If you have experience working in WebSockets and you think there's a problem, pl
 
 I want to be sure I'm using WebSockets correctly and in the most efficient way.
 
-<a href="http://scripting.com/">Dave Winer</a>
+<a href="http://scripting.com/liveblog/users/davewiner/2015/11/27/0476.html">Dave Winer</a>
 
