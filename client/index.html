@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>WebSocket test client</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="http://fargo.io/code/jquery-1.9.1.min.js"></script><link href="http://fargo.io/code/bootstrap.css" rel="stylesheet"><script src="http://fargo.io/code/bootstrap.min.js"></script><link rel="stylesheet" href="http://fargo.io/code/fontAwesome/css/font-awesome.min.css"/><link href="http://fargo.io/code/ubuntuFont.css" rel="stylesheet" type="text/css"><link href="http://fargo.io/code/ranchoFont.css" rel="stylesheet" type="text/css"><script src="http://fargo.io/code/node/shared/utils.js"></script><script src="http://fargo.io/code/node/shared/alertdialog.js"></script><script src="http://fargo.io/code/node/shared/confirmdialog.js"></script><script src="http://fargo.io/code/node/shared/askdialog.js"></script><script src="http://fargo.io/code/shared/twitter.js"></script><script src="http://fargo.io/code/strftime.js"></script><script src="http://fargo.io/code/shared/ga.js"></script><script src="http://fargo.io/code/shared/app.js"></script><script src="http://fargo.io/code/shared/menus.js"></script><link href="http://fargo.io/code/shared/menus.css" rel="stylesheet" type="text/css"><link href="http://fargo.io/code/shared/app.css" rel="stylesheet" type="text/css"><script src="http://fargo.io/code/shared/appprefs.js"></script><script src="http://fargo.io/code/shared/beep.js"></script>
+		<script>
+			var mySocket;
+			var urlMySocket = "ws://localhost:1337/";
+			
+			function everySecond () {
+				}
+			function startup () {
+				console.log ("startup");
+				
+				mySocket = new WebSocket (urlMySocket); 
+				mySocket.onopen = function (evt) {
+					console.log ("mySocket is open.");
+					mySocket.send (""); //send a  message to wake up server
+					};
+				mySocket.onmessage = function (evt) {
+					console.log ("mySocket received a message: " + evt.data);
+					};
+				mySocket.onclose = function (evt) {
+					console.log ("mySocket was closed.");
+					};
+				mySocket.onerror = function (evt) {
+					console.log ("mySocket received an error");
+					};
+				
+				
+				self.setInterval (function () {everySecond ()}, 1000); 
+				}
+			</script>
+		<style>
+			body {
+				font-family: Ubuntu;
+				font-size: 18px;
+				background-color: whitesmoke;
+				}
+			.divPageBody {
+				width: 60%;
+				margin-top: 90px;
+				margin-left: auto;
+				margin-right: auto;
+				}
+			</style>
+		</head>
+	<body>
+		<div class="divPageBody">
+			<h1>Hello World</h1>
+			</div>
+		<script>
+			$(document).ready (function () {
+				startup ();
+				});
+			</script>
+		</body>
+	</html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

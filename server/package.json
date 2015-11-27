@@ -1,0 +1,16 @@
+{
+	"name": "websocketserver2",
+	"description": "A JavaScript server that tests websockets.",
+	"author": "Dave Winer <dave@smallpicture.com>",
+	"version": "0.0.40",
+	"scripts": {
+		"start": "node server.js"
+		},
+	"dependencies" : {
+		"nodejs-websocket": "*"
+		}, 
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.10.x"
+		}
+	}
