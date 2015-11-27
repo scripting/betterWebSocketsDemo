@@ -1,3 +1,4 @@
+var myVersion = "0.40", myProductName = "betterWebSocketsDemo"; 
 var ws = require ("nodejs-websocket");
 var myPort = 1337; 
 var myConnection;

@@ -1,11 +1,8 @@
 {
-	"name": "websocketserver2",
-	"description": "A JavaScript server that tests websockets.",
+	"name": "betterWebSocketsDemo",
+	"description": "WebSockets demo app in JavaScript, both client and server.",
 	"author": "Dave Winer <dave@smallpicture.com>",
 	"version": "0.0.40",
-	"scripts": {
-		"start": "node server.js"
-		},
 	"dependencies" : {
 		"nodejs-websocket": "*"
 		}, 
