@@ -16,7 +16,7 @@ The client opens a socket with the server, and the server posts a message to the
 
 6. Close the browser tab and watch what happens in the server. (It notices the connection has closed and stops sending messages.)
 
-7. You can open two or more instances of client.html, they should all work.
+You can launch multiple copies of client.html, but the server will only talk to one of them at a time. It would be easy to extend it to manage multiple open sockets, but this is just a demo. 
 
 #### Code review please
 
