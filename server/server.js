@@ -1,4 +1,4 @@
-var myVersion = "0.40", myProductName = "betterWebSocketsDemo"; 
+var myVersion = "0.41", myProductName = "betterWebSocketsDemo"; 
 var ws = require ("nodejs-websocket");
 var myPort = 1337; 
 var myConnection;
@@ -12,9 +12,10 @@ function everySecond () {
 		}
 	}
 function handleConnection (conn) { 
+	myConnection = conn;
+	console.log ("New connection received. Text messages will now commence.");
 	conn.on ("text", function (s) {
-		myConnection = conn;
-		console.log ("'text' message received. Sending a message to the socket every second.");
+		console.log ("'text' message received.");
 		});
 	conn.on ("close", function () {
 		console.log ("'close' message received.");

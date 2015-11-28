@@ -1,6 +1,6 @@
 #### betterWebSocketsDemo
 
-After a few weeks' experience with WebSockets in JavaScript, I've put together a better demo that shows how they are used in a real application.
+After a few weeks experience with WebSockets in JavaScript, I've put together a better demo that shows how they are used in a real application.
 
 All the demos I found left out an important part, how to know, from the client, if the server disappeared, and more commonly how to know from the server if the client disappeared. Once you have both these under control you can achieve the promise of WebSockets, with an always-open connection and the server piping data back to the client as soon as it's available. 
 

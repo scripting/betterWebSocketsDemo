@@ -11,7 +11,6 @@
 				mySocket = new WebSocket (urlMySocket); 
 				mySocket.onopen = function (evt) {
 					console.log ("mySocket is open.");
-					mySocket.send (""); //send a  message to wake up server
 					};
 				mySocket.onmessage = function (evt) {
 					console.log ("mySocket received a message: " + evt.data);
