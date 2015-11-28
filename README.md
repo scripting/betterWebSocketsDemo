@@ -34,6 +34,8 @@ v0.41 -- Eliminated the need to prime the process with a text message.
 
 v0.42 -- We now maintain an array of connections, so the server can talk with more than one client at a time.
 
+v0.43 -- Use the nodejs-websockets array of connections instead of maintaining our own.
+
 #### Code review please
 
 If you have experience working in WebSockets and you think there's a problem, please post a <a href="https://github.com/scripting/betterWebSocketsDemo/issues">comment here</a>. 
