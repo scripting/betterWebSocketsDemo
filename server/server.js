@@ -1,33 +1,42 @@
-var myVersion = "0.41", myProductName = "betterWebSocketsDemo"; 
+var myVersion = "0.42", myProductName = "betterWebSocketsDemo", myPort = 1337; 
 var ws = require ("nodejs-websocket");
-var myPort = 1337; 
-var myConnection;
-var ctMessages = 0;
+var waitingWebSocketCalls = new Array ();
 
+function addSocketToArray (wsConnection) {
+	waitingWebSocketCalls [waitingWebSocketCalls.length] = {
+		ctMessages: 0,
+		theConnection: wsConnection
+		}
+	}
+function deleteSocketFromArray (wsConnection) {
+	for (var i = 0; i < waitingWebSocketCalls.length; i++) {
+		var theSocket = waitingWebSocketCalls [i];
+		if (theSocket.theConnection === wsConnection) {
+			console.log ("deleting socket #" + i);
+			waitingWebSocketCalls.splice (i, 1);
+			}
+		}
+	}
 function everySecond () {
-	if (myConnection !== undefined) {
-		var theMsg = "Hello there #" + ctMessages++;
-		console.log ("everySecond: sending \"" + theMsg + "\"");
-		myConnection.sendText (theMsg);
+	for (var i = 0; i < waitingWebSocketCalls.length; i++) {
+		var theSocket = waitingWebSocketCalls [i];
+		var theMsg = "Hello there #" + theSocket.ctMessages++;
+		console.log ("sending \"" + theMsg + "\" to the app on socket #" + i);
+		theSocket.theConnection.sendText (theMsg);
 		}
 	}
 function handleConnection (conn) { 
-	myConnection = conn;
-	console.log ("New connection received. Text messages will now commence.");
-	conn.on ("text", function (s) {
-		console.log ("'text' message received.");
-		});
+	addSocketToArray (conn);
+	console.log ("New connection received.");
 	conn.on ("close", function () {
 		console.log ("'close' message received.");
-		if (myConnection !== undefined) {
-			console.log ("Closing the connection.");
-			myConnection = undefined;
-			}
+		deleteSocketFromArray (conn);
 		});
 	conn.on ("error", function () {
 		console.log ("'error' message received.");
 		});
 	}
-console.log ("\n" + myProductName + " v" + myVersion + "\n");
+
+console.log ("\n" + myProductName + " v" + myVersion + " is running on port " + myPort + "\n");
 ws.createServer (handleConnection).listen (myPort);
 setInterval (everySecond, 1000); 

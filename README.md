@@ -26,7 +26,13 @@ The client opens a socket with the server, and the server posts a message to the
 
 8. Quit the server by pressing Cmd-C in the terminal window. The client should get a <i>close</i> message. It will try to reconnect with the server once a second. Restart the server (step #3). The messages on both the client and server should resume. 
 
-You can launch multiple copies of client.html, but the server will only talk to one at a time. It would be easy to extend it to manage multiple open sockets, but this is just a demo. 
+9. You can launch multiple copies of client.html. The server will send messages to all of them every second. Try opening several of instances each in their own browser tab, and then close them one by one and observe that the server communicates with each independently.
+
+#### Updates
+
+v0.41 -- Eliminated the need to prime the process with a text message. 
+
+v0.42 -- Maintain an array of connections, so more than one client can be talked to by the server at once.
 
 #### Code review please
 
